@@ -16,7 +16,7 @@ namespace ecommerce.Models
         public required string OrderCountry { get; set; }
         public required string OrderCity { get; set; }
         public required string OrderPostalCode { get; set; }
-        public required string OrderShippingComments { get; set; }
+        public string? OrderShippingComments { get; set; }
 
         // Navigation property
         public required ICollection<OrderDetail> OrderDetails { get; set; }

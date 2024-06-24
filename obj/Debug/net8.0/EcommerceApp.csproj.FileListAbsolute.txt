@@ -135,3 +135,4 @@ C:\Users\Stavros\Desktop\programming\Projects\EcommerceApp\obj\Debug\net8.0\refi
 C:\Users\Stavros\Desktop\programming\Projects\EcommerceApp\obj\Debug\net8.0\EcommerceApp.pdb
 C:\Users\Stavros\Desktop\programming\Projects\EcommerceApp\obj\Debug\net8.0\EcommerceApp.genruntimeconfig.cache
 C:\Users\Stavros\Desktop\programming\Projects\EcommerceApp\obj\Debug\net8.0\ref\EcommerceApp.dll
+c:\Users\Stavros\Desktop\programming\Projects\EcommerceApp\obj\Debug\net8.0\EcommerceApp.sourcelink.json
