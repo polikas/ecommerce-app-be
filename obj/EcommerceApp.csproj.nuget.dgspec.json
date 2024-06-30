@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj": {}
+    "c:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj": {
+    "c:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj",
+        "projectUniqueName": "c:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj",
         "projectName": "EcommerceApp",
-        "projectPath": "C:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj",
+        "projectPath": "c:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj",
         "packagesPath": "C:\\Users\\Stavros\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\obj\\",
+        "outputPath": "c:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Stavros\\AppData\\Roaming\\NuGet\\NuGet.Config"

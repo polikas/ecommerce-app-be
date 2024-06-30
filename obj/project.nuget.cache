@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TzYUn1zLjVg=",
+  "dgSpecHash": "76TSzNDzmxU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj",
+  "projectFilePath": "c:\\Users\\Stavros\\Desktop\\programming\\Projects\\EcommerceApp\\EcommerceApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stavros\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Stavros\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
