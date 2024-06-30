@@ -1,8 +1,8 @@
-using ecommerce.Models;
+// using ecommerce.Models;
 
-namespace ecommerce.Services.Products;
+// namespace ecommerce.Services.Products;
 
-public interface IProductService
-{
+// public interface IProductService
+// {
 
-}
+// }

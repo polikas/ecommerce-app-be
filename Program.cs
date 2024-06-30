@@ -11,6 +11,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<EcommerceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+void ConfigureServices(IServiceCollection services)
+{
+
+    services.AddAuthentication();
+    services.AddAuthorization();
+    services.AddMvc();
+}
+
+ConfigureServices(builder.Services);
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -19,6 +32,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
+
 
 app.UseHttpsRedirection();
 

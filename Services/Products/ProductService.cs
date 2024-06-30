@@ -1,10 +1,10 @@
 
 
 
-namespace ecommerce.Services.Products;
+// namespace ecommerce.Services.Products;
 
-public class ProductService : IProductService
-{
+// public class ProductService : IProductService
+// {
 
-}
+// }
 
