@@ -11,18 +11,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<EcommerceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+// Configure services
 void ConfigureServices(IServiceCollection services)
 {
-
     services.AddAuthentication();
     services.AddAuthorization();
     services.AddMvc();
 }
 
 ConfigureServices(builder.Services);
-
-
 
 var app = builder.Build();
 
@@ -33,14 +30,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapGet("/", () => "Hello World!");
-
+// Enable HTTPS redirection
 app.UseHttpsRedirection();
 
+// Enable HTTP Strict Transport Security (HSTS)
 app.UseHsts();
 
+// Authorization middleware
 app.UseAuthorization();
 
+// Map controllers
 app.MapControllers();
+
+// Default route
+app.MapGet("/", () => "Hello World!");
 
 app.Run();
