@@ -3,3 +3,31 @@ GET http://localhost:7198/products
 ###
 
 GET http://localhost:7198/products/3
+
+###
+
+POST http://localhost:7198/products
+Content-Type: application/json
+
+{
+    "productName": "Sugar",
+    "productPrice": 4.99,
+    "productQuantity": 4,
+    "productShippingCost": 7.99,
+    "productTotalCost": 12.99,
+    "productEstimatedArrivalDate": "2024-07-02T12:29:12.211Z"
+}
+
+###
+
+PUT http://localhost:7198/products/1
+Content-Type: application/json
+
+{
+    "productName": "Spciy Tuna",
+    "productPrice": 12.99,
+    "productQuantity": 2,
+    "productShippingCost": 3.99,
+    "productTotalCost": 15.99,
+    "productEstimatedArrivalDate": "2024-08-19T00:00:00"
+  }

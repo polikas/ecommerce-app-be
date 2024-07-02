@@ -43,6 +43,8 @@ app.UseAuthorization();
 // Map controllers
 app.MapControllers();
 
+const string GetProductEndpointName = "GetProduct";
+
 // route for product rest api simple implementation for practice
 List<ProductDto> products = [
     new (
@@ -78,7 +80,43 @@ List<ProductDto> products = [
 app.MapGet("products", () => products);
 
 // GET /products/1 get a product by id
-app.MapGet("products/{id}", (int id) => products.Find(product => product.ProductId == id));
+app.MapGet("products/{id}", (int id) => products.Find(product => product.ProductId == id))
+    .WithName(GetProductEndpointName);
+
+// POST /products add a product to the api/database
+app.MapPost("products", (CreateProductDto newProduct) =>
+{
+    ProductDto product = new(
+        products.Count + 1,
+        newProduct.ProductName,
+        newProduct.ProductPrice,
+        newProduct.ProductQuantity,
+        newProduct.ProductShippingCost,
+        newProduct.ProductTotalCost,
+        newProduct.ProductEstimatedArrivalDate
+    );
+    products.Add(product);
+
+    return Results.CreatedAtRoute(GetProductEndpointName, new { id = product.ProductId }, product);
+});
+
+// PUT /products update products api/database
+app.MapPut("products/{id}", (int id, UpdateProductDto updatedProduct) =>
+{
+    var index = products.FindIndex(product => product.ProductId == id);
+
+    products[index] = new ProductDto(
+        id,
+        updatedProduct.ProductName,
+        updatedProduct.ProductPrice,
+        updatedProduct.ProductQuantity,
+        updatedProduct.ProductShippingCost,
+        updatedProduct.ProductTotalCost,
+        updatedProduct.ProductEstimatedArrivalDate
+    );
+
+    return Results.NoContent();
+});
 
 
 app.Run();
