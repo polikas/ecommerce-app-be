@@ -2,7 +2,7 @@ GET http://localhost:7198/products
 
 ###
 
-GET http://localhost:7198/products/3
+GET http://localhost:7198/products/1
 
 ###
 
@@ -30,4 +30,8 @@ Content-Type: application/json
     "productShippingCost": 3.99,
     "productTotalCost": 15.99,
     "productEstimatedArrivalDate": "2024-08-19T00:00:00"
-  }
+}
+
+###
+
+DELETE http://localhost:7198/products/2

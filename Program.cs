@@ -80,8 +80,13 @@ List<ProductDto> products = [
 app.MapGet("products", () => products);
 
 // GET /products/1 get a product by id
-app.MapGet("products/{id}", (int id) => products.Find(product => product.ProductId == id))
-    .WithName(GetProductEndpointName);
+app.MapGet("products/{id}", (int id) =>
+{
+    ProductDto? product = products.Find(product => product.ProductId == id);
+
+    return product is null ? Results.NotFound() : Results.Ok(product);
+})
+.WithName(GetProductEndpointName);
 
 // POST /products add a product to the api/database
 app.MapPost("products", (CreateProductDto newProduct) =>
@@ -105,6 +110,11 @@ app.MapPut("products/{id}", (int id, UpdateProductDto updatedProduct) =>
 {
     var index = products.FindIndex(product => product.ProductId == id);
 
+    if (index == -1)
+    {
+        return Results.NotFound();
+    }
+
     products[index] = new ProductDto(
         id,
         updatedProduct.ProductName,
@@ -114,6 +124,14 @@ app.MapPut("products/{id}", (int id, UpdateProductDto updatedProduct) =>
         updatedProduct.ProductTotalCost,
         updatedProduct.ProductEstimatedArrivalDate
     );
+
+    return Results.NoContent();
+});
+
+// DELETE /products/1 delete a product from api/database
+app.MapDelete("products/{id}", (int id) =>
+{
+    products.RemoveAll(product => product.ProductId == id);
 
     return Results.NoContent();
 });
