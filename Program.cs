@@ -45,7 +45,7 @@ app.MapControllers();
 
 const string GetProductEndpointName = "GetProduct";
 
-// route for product rest api simple implementation for practice
+// route for product rest api sample implementation for practice
 List<ProductDto> products = [
     new (
         1,
