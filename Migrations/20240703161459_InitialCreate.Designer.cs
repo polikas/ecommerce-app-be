@@ -12,8 +12,8 @@ using ecommerce.Models;
 namespace EcommerceApp.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20240624141828_UpdateDatabaseMigration2")]
-    partial class UpdateDatabaseMigration2
+    [Migration("20240703161459_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

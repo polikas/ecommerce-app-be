@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using ecommerce.Models;
 
-namespace ecommerce.Models
+namespace ecommerce.Data
 {
     public class EcommerceDbContext : DbContext
     {
