@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcommerceApp.Data.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20240703173200_InitialCreate")]
+    [Migration("20240703181224_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -156,6 +156,58 @@ namespace EcommerceApp.Data.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            ProductEstimatedArrivalDate = new DateTime(2024, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductName = "Sugar",
+                            ProductPrice = 4.99m,
+                            ProductQuantity = 3,
+                            ProductShippingCost = 5.99m,
+                            ProductTotalCost = 17.99m
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            ProductEstimatedArrivalDate = new DateTime(2019, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductName = "Duck",
+                            ProductPrice = 7.99m,
+                            ProductQuantity = 1,
+                            ProductShippingCost = 3.99m,
+                            ProductTotalCost = 18.99m
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            ProductEstimatedArrivalDate = new DateTime(2021, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductName = "Pork",
+                            ProductPrice = 6.99m,
+                            ProductQuantity = 8,
+                            ProductShippingCost = 9.99m,
+                            ProductTotalCost = 20.99m
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            ProductEstimatedArrivalDate = new DateTime(2023, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductName = "Chicken",
+                            ProductPrice = 2.99m,
+                            ProductQuantity = 10,
+                            ProductShippingCost = 12.99m,
+                            ProductTotalCost = 25.99m
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            ProductEstimatedArrivalDate = new DateTime(2018, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProductName = "Beef",
+                            ProductPrice = 10.99m,
+                            ProductQuantity = 2,
+                            ProductShippingCost = 6.99m,
+                            ProductTotalCost = 17.99m
+                        });
                 });
 
             modelBuilder.Entity("EcommerceApp.Models.OrderDetail", b =>

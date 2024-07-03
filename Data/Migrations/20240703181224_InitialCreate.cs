@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace EcommerceApp.Data.Migrations
 {
     /// <inheritdoc />
@@ -79,6 +81,18 @@ namespace EcommerceApp.Data.Migrations
                         principalTable: "Products",
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductId", "ProductEstimatedArrivalDate", "ProductName", "ProductPrice", "ProductQuantity", "ProductShippingCost", "ProductTotalCost" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), "Sugar", 4.99m, 3, 5.99m, 17.99m },
+                    { 2, new DateTime(2019, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Duck", 7.99m, 1, 3.99m, 18.99m },
+                    { 3, new DateTime(2021, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pork", 6.99m, 8, 9.99m, 20.99m },
+                    { 4, new DateTime(2023, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Chicken", 2.99m, 10, 12.99m, 25.99m },
+                    { 5, new DateTime(2018, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Beef", 10.99m, 2, 6.99m, 17.99m }
                 });
 
             migrationBuilder.CreateIndex(
