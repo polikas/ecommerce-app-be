@@ -1,4 +1,4 @@
-using ecommerce.Data;
+using EcommerceApp.Data;
 using EcommerceApp;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,6 +46,6 @@ app.MapControllers();
 
 app.MapProductsEndpoints();
 
-
+app.MigrateDb();
 
 app.Run();

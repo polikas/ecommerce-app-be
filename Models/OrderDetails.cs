@@ -1,6 +1,6 @@
 
 
-namespace ecommerce.Models
+namespace EcommerceApp.Models
 {
     public class OrderDetail
     {
