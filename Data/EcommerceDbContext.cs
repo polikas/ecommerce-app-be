@@ -117,26 +117,26 @@ namespace EcommerceApp.Data
                 ProductTotalCost = 18.99M,
                 ProductEstimatedArrivalDate = new DateTime(2019, 4, 26)
             },
-            // new
-            // {
-            //     ProductId = 3,
-            //     ProductName = "Pork",
-            //     ProductPrice = 6.99M,
-            //     ProductQuantity = 8,
-            //     ProductShippingCost = 9.99M,
-            //     ProductTotalCost = 20.99M,
-            //     ProductEstimatedArrivalDate = new DateTime(2021, 2, 14)
-            // },
-            // new
-            // {
-            //     ProductId = 4,
-            //     ProductName = "Chicken",
-            //     ProductPrice = 2.99M,
-            //     ProductQuantity = 10,
-            //     ProductShippingCost = 12.99M,
-            //     ProductTotalCost = 25.99M,
-            //     ProductEstimatedArrivalDate = new DateTime(2023, 7, 5)
-            // },
+            new
+            {
+                ProductId = 3,
+                ProductName = "Pork",
+                ProductPrice = 6.99M,
+                ProductQuantity = 8,
+                ProductShippingCost = 9.99M,
+                ProductTotalCost = 20.99M,
+                ProductEstimatedArrivalDate = new DateTime(2021, 2, 14)
+            },
+            new
+            {
+                ProductId = 4,
+                ProductName = "Chicken",
+                ProductPrice = 2.99M,
+                ProductQuantity = 10,
+                ProductShippingCost = 12.99M,
+                ProductTotalCost = 25.99M,
+                ProductEstimatedArrivalDate = new DateTime(2023, 7, 5)
+            },
             new
             {
                 ProductId = 5,
