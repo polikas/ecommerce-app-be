@@ -1,4 +1,6 @@
-﻿using EcommerceApp.Dtos;
+﻿using EcommerceApp.Data;
+using EcommerceApp.Dtos;
+using EcommerceApp.Models;
 
 namespace EcommerceApp;
 
@@ -57,18 +59,19 @@ public static class ProductEndpoints
         .WithName(GetProductEndpointName);
 
         // POST /products add a product to the api/database
-        group.MapPost("/", (CreateProductDto newProduct) =>
+        group.MapPost("/", (CreateProductDto newProduct, EcommerceDbContext dbContext) =>
         {
-            ProductDto product = new(
-                products.Count + 1,
-                newProduct.ProductName,
-                newProduct.ProductPrice,
-                newProduct.ProductQuantity,
-                newProduct.ProductShippingCost,
-                newProduct.ProductTotalCost,
-                newProduct.ProductEstimatedArrivalDate
-            );
-            products.Add(product);
+            Product product = new()
+            {
+                ProductName = newProduct.ProductName,
+                ProductPrice = newProduct.ProductPrice,
+                ProductQuantity = newProduct.ProductQuantity,
+                ProductShippingCost = newProduct.ProductShippingCost,
+                ProductTotalCost = newProduct.ProductTotalCost,
+                ProductEstimatedArrivalDate = newProduct.ProductEstimatedArrivalDate
+            };
+            dbContext.Products.Add(product);
+            dbContext.SaveChanges();
 
             return Results.CreatedAtRoute(GetProductEndpointName, new { id = product.ProductId }, product);
         });
