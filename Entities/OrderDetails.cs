@@ -1,7 +1,3 @@
-
-
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-
 namespace EcommerceApp.Entities
 {
     public class OrderDetail

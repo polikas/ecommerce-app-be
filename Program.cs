@@ -43,6 +43,7 @@ app.UseAuthorization();
 // Map controllers
 app.MapControllers();
 
+app.MapOrdersEndpoints();
 
 app.MapProductsEndpoints();
 

@@ -1,0 +1,56 @@
+GET http://localhost:7198/orders
+
+###
+
+GET http://localhost:7198/orders/4
+
+###
+
+POST http://localhost:7198/orders
+Content-Type: application/json
+
+{
+    "ShippingCost": 10.99,
+    "TotalAmount": 100.0,
+    "EstimatedArrivalDate": "2024-07-09T00:00:00",
+    "ShippingAddress": "123 Main St",
+    "FirstName": "John",
+    "LastName": "Doe",
+    "Email": "john.doe@example.com",
+    "PhoneNumber": "1234567890",
+    "Country": "USA",
+    "City": "New York",
+    "PostalCode": "10001",
+    "OrderDetails": [
+        {
+            "ProductId": 1,
+            "ProductName": "Product 1",
+            "ProductPrice": 10.0,
+            "Quantity": 2
+        },
+        {
+            "ProductId": 2,
+            "ProductName": "Product 2",
+            "ProductPrice": 20.0,
+            "Quantity": 1
+        }
+    ]
+}
+
+###
+
+PUT http://localhost:7198/orders/4
+Content-Type: application/json
+
+{
+    "productName": "Spciy Tuna",
+    "productPrice": 12.99,
+    "productQuantity": 2,
+    "productShippingCost": 3.99,
+    "productTotalCost": 15.99,
+    "productEstimatedArrivalDate": "2024-08-19T00:00:00"
+}
+
+###
+
+DELETE http://localhost:7198/orders/2
