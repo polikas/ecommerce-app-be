@@ -1,5 +1,5 @@
 
-namespace EcommerceApp.Models
+namespace EcommerceApp.Entities
 {
     public class Product
     {

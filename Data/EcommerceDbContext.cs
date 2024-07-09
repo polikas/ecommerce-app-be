@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using EcommerceApp.Models;
+using EcommerceApp.Entities;
 
 namespace EcommerceApp.Data
 {
@@ -30,50 +30,58 @@ namespace EcommerceApp.Data
                 .WithMany()
                 .HasForeignKey(od => od.ProductId);
 
+            modelBuilder.Entity<OrderDetail>()
+                .Property(od => od.ProductName)
+                .HasMaxLength(100);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(od => od.ProductPrice)
+                .HasPrecision(10, 2);
+
 
             //configure Order table properties
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderShippingAddress)
+                .Property(o => o.ShippingAddress)
                 .HasMaxLength(100);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderFirstName)
+                .Property(o => o.FirstName)
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderLastName)
+                .Property(o => o.LastName)
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderEmail)
+                .Property(o => o.Email)
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderPhoneNumber)
+                .Property(o => o.PhoneNumber)
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderCountry)
+                .Property(o => o.Country)
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderCity)
+                .Property(o => o.City)
                 .HasMaxLength(50);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderPostalCode)
+                .Property(o => o.PostalCode)
                 .HasMaxLength(30);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderShippingComments)
+                .Property(o => o.ShippingComments)
                 .HasMaxLength(400);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderShippingCost)
+                .Property(o => o.ShippingCost)
                 .HasPrecision(10, 2);
 
             modelBuilder.Entity<Order>()
-                .Property(o => o.OrderTotalAmount)
+                .Property(o => o.TotalAmount)
                 .HasPrecision(10, 2);
 
 

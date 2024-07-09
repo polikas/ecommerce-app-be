@@ -1,8 +1,9 @@
 ﻿using EcommerceApp.Data;
 using EcommerceApp.Dtos;
-using EcommerceApp.Models;
+using EcommerceApp.Mapping;
+using EcommerceApp.Entities;
 
-namespace EcommerceApp;
+namespace EcommerceApp.Endpoints;
 
 public static class ProductEndpoints
 {
@@ -50,9 +51,9 @@ public static class ProductEndpoints
         group.MapGet("/", () => products);
 
         // GET /products/1 get a product by id
-        group.MapGet("/{id}", (int id) =>
+        group.MapGet("/{id}", (int id, EcommerceDbContext dbContext) =>
         {
-            ProductDto? product = products.Find(product => product.ProductId == id);
+            Product? product = dbContext.Products.Find(id);
 
             return product is null ? Results.NotFound() : Results.Ok(product);
         })
@@ -61,19 +62,14 @@ public static class ProductEndpoints
         // POST /products add a product to the api/database
         group.MapPost("/", (CreateProductDto newProduct, EcommerceDbContext dbContext) =>
         {
-            Product product = new()
-            {
-                ProductName = newProduct.ProductName,
-                ProductPrice = newProduct.ProductPrice,
-                ProductQuantity = newProduct.ProductQuantity,
-                ProductShippingCost = newProduct.ProductShippingCost,
-                ProductTotalCost = newProduct.ProductTotalCost,
-                ProductEstimatedArrivalDate = newProduct.ProductEstimatedArrivalDate
-            };
+            //create entity
+            Product product = newProduct.ToEntity();
+
+            //save entity to the db
             dbContext.Products.Add(product);
             dbContext.SaveChanges();
 
-            return Results.CreatedAtRoute(GetProductEndpointName, new { id = product.ProductId }, product);
+            return Results.CreatedAtRoute(GetProductEndpointName, new { id = product.ProductId }, product.ToDto());
         });
 
 

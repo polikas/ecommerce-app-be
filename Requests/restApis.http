@@ -10,12 +10,12 @@ POST http://localhost:7198/products
 Content-Type: application/json
 
 {
-    "productName": "Sugar",
-    "productPrice": 4.99,
-    "productQuantity": 4,
-    "productShippingCost": 7.99,
-    "productTotalCost": 12.99,
-    "productEstimatedArrivalDate": "2024-07-02T12:29:12.211Z"
+    "productName": "Oil",
+    "productPrice": 7.99,
+    "productQuantity": 1,
+    "productShippingCost": 10.99,
+    "productTotalCost": 15.99,
+    "productEstimatedArrivalDate": "2020-07-02T12:29:12.211Z"
 }
 
 ###
