@@ -2,43 +2,13 @@
 using EcommerceApp.Dtos;
 using EcommerceApp.Mapping;
 using EcommerceApp.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceApp.Endpoints;
 
 public static class ProductEndpoints
 {
     const string GetProductEndpointName = "GetProduct";
-
-    // route for product rest api sample implementation for practice
-    //     private static readonly List<ProductDto> products = [
-    //         new (
-    //         1,
-    //         "Tuna",
-    //         10.99M,
-    //         2,
-    //         3.99M,
-    //         15.99M,
-    //         new DateTime(2024, 8, 19)
-    //     ),
-    //     new (
-    //         2,
-    //         "Pasta",
-    //         20.99M,
-    //         1,
-    //         4.99M,
-    //         30.99M,
-    //         new DateTime(2019, 2, 10)
-    //     ),
-    //     new (
-    //         3,
-    //         "Eggs",
-    //         8.99M,
-    //         4,
-    //         1.99M,
-    //         5.99M,
-    //         new DateTime(2022, 4, 2)
-    //     ),
-    // ];
 
 
     public static RouteGroupBuilder MapProductsEndpoints(this WebApplication app)
@@ -51,17 +21,9 @@ public static class ProductEndpoints
         group.MapGet("/", (EcommerceDbContext dbContext) =>
         {
             var products = dbContext.Products
-                .Select(p => new ProductDto(
-                    p.ProductId,
-                    p.ProductName,
-                    p.ProductPrice,
-                    p.ProductQuantity,
-                    p.ProductShippingCost,
-                    p.ProductTotalCost,
-                    p.ProductEstimatedArrivalDate
-                ))
-                .ToList();
-
+                     .Select(product => product.ToDto())
+                     .AsNoTracking()
+                     .ToList();
             return Results.Ok(products);
         });
 
@@ -89,27 +51,23 @@ public static class ProductEndpoints
 
 
         // PUT /products update products api/database
-        // group.MapPut("/{id}", (int id, UpdateProductDto updatedProduct) =>
-        // {
-        //     var index = products.FindIndex(product => product.ProductId == id);
+        group.MapPut("/{id}", (int id, UpdateProductDto updatedProduct, EcommerceDbContext dbContext) =>
+        {
+            var existingProduct = dbContext.Products.Find(id);
 
-        //     if (index == -1)
-        //     {
-        //         return Results.NotFound();
-        //     }
+            if (existingProduct is null)
+            {
+                return Results.NotFound();
+            }
 
-        //     products[index] = new ProductDto(
-        //         id,
-        //         updatedProduct.ProductName,
-        //         updatedProduct.ProductPrice,
-        //         updatedProduct.ProductQuantity,
-        //         updatedProduct.ProductShippingCost,
-        //         updatedProduct.ProductTotalCost,
-        //         updatedProduct.ProductEstimatedArrivalDate
-        //     );
+            dbContext.Entry(existingProduct)
+                    .CurrentValues
+                    .SetValues(updatedProduct.ToEntity(id));
 
-        //     return Results.NoContent();
-        // });
+            dbContext.SaveChanges();
+
+            return Results.NoContent();
+        });
 
         // // DELETE /products/1 delete a product from api/database
         // group.MapDelete("/{id}", (int id) =>

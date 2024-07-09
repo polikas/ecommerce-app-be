@@ -2,6 +2,7 @@
 using EcommerceApp.Dtos;
 using EcommerceApp.Entities;
 using EcommerceApp.Mapping;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceApp.Endpoints;
 

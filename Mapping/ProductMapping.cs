@@ -19,6 +19,20 @@ public static class ProductMapping
         };
     }
 
+    public static Product ToEntity(this UpdateProductDto product, int id)
+    {
+        return new Product()
+        {
+            ProductId = id,
+            ProductName = product.ProductName,
+            ProductPrice = product.ProductPrice,
+            ProductQuantity = product.ProductQuantity,
+            ProductShippingCost = product.ProductShippingCost,
+            ProductTotalCost = product.ProductTotalCost,
+            ProductEstimatedArrivalDate = product.ProductEstimatedArrivalDate
+        };
+    }
+
 
     //create  DTO data transfer object to send back to the client
     public static ProductDto ToDto(this Product product)
