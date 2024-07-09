@@ -61,6 +61,8 @@ public static class OrderMapping
             order.PostalCode,
             order.ShippingComments,
             order.OrderDetails.Select(od => new OrderDetailDto(
+                od.OrderDetailId,
+                od.OrderId,
                 od.ProductId,
                 od.ProductName,
                 od.ProductPrice,
