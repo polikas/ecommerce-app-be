@@ -39,17 +39,17 @@ Content-Type: application/json
 
 ###
 
-# PUT http://localhost:7198/orders/4
-# Content-Type: application/json
+PUT http://localhost:7198/orders/4
+Content-Type: application/json
 
-# {
-#     "productName": "Spciy Tuna",
-#     "productPrice": 12.99,
-#     "productQuantity": 2,
-#     "productShippingCost": 3.99,
-#     "productTotalCost": 15.99,
-#     "productEstimatedArrivalDate": "2024-08-19T00:00:00"
-# }
+{
+    "productName": "Spciy Tuna",
+    "productPrice": 12.99,
+    "productQuantity": 2,
+    "productShippingCost": 3.99,
+    "productTotalCost": 15.99,
+    "productEstimatedArrivalDate": "2024-08-19T00:00:00"
+}
 
 ###
 
