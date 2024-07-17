@@ -70,12 +70,12 @@ public static class ProductEndpoints
         });
 
         // // DELETE /products/1 delete a product from api/database
-        // group.MapDelete("/{id}", (int id) =>
-        // {
-        //     products.RemoveAll(product => product.ProductId == id);
+        group.MapDelete("/{id}", (int id) =>
+        {
+            products.RemoveAll(product => product.ProductId == id);
 
-        //     return Results.NoContent();
-        // });
+            return Results.NoContent();
+        });
 
         return group;
     }
