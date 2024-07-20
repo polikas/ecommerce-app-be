@@ -50,3 +50,5 @@ app.MapProductsEndpoints();
 app.MigrateDb();
 
 app.Run();
+
+//  add unitx or other tool to practice unit testing
